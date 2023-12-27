@@ -17,6 +17,7 @@ def invert_tree(root)
   invert_tree(root.right)
   root
 end
+
 def print_tree(root)
   return if root.nil
 
