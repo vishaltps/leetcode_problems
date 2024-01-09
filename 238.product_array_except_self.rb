@@ -13,12 +13,13 @@ def product_except_self(nums)
 
   
   (0...n).each do |i|
-    
+    p "#{result[i]}, #{left_product}"
     result[i] *= left_product
     left_product *= nums[i]
   end
   
   (n - 1).downto(0) do |i|
+    p "#{result[i]}, #{right_product}"
     result[i] *= right_product
     right_product *= nums[i]
   end

@@ -4,19 +4,50 @@
 
 require 'pry'
 def min_sub_array_len(target, nums)
-  return 1 if nums.include? target
+  return 0 if nums.sum < target
 
-  result = []
-  visited_ele = {}
-  i = 0
-  while i < nums.length
-    result.append([nums[i], visited_ele.key(nums.find_index(target - nums[i]))]) if visited_ele.key? target - nums[i]
+  n = nums.length
+  min_length = nums.length
+  sum = left = right = 0
 
-    visited_ele[nums[i]] = i
-    i += 1
+  while right < n
+    sum += nums[right]
+    while sum >= target
+      curr_length = right - left + 1
+      min_length = [curr_length, min_length].min
+      sum -= nums[left]
+      left += 1
+    end
+    right += 1
   end
+  [0, min_length].max
+#   return 1 if nums.include? target
 
-  result.min_by(&:length)&.length || 0
+#   first_index = 0
+#   second_index = 1
+#   n = nums.length
+#   min_length = n
+#   while second_index < n
+#     current_list = [nums[first_index]]
+
+#     i = second_index
+#     binding.irb if nums[first_index] == 3
+#     while i < n
+#       current_list << nums[i]
+#       p current_list
+#       if current_list.sum >= target
+#         break
+#       end
+#       i += 1
+#     end
+
+#     min_length = [min_length, current_list.length].min
+#     first_index += 1
+#     second_index += 1
+#   end
+#   min_length
+# rescue 
+#   binding.irb
 end
 
 # Example 1:
@@ -33,11 +64,11 @@ end
 # Input: target = 11, nums = [1,1,1,1,1,1,1,1]
 # Output: 0
 
-# target = 7
-# nums = [2,3,1,2,4,3]
-# p min_sub_array_len(target, nums)
+target = 7
+nums = [2,3,1,2,4,3]
+p min_sub_array_len(target, nums)
 
 target = 11
 nums = [1,2,3,4,5]
 
-p min_sub_array_len(target, nums)
+# p min_sub_array_len(target, nums)
