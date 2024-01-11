@@ -2,13 +2,15 @@
 
 def intersect(nums1, nums2)
   result = []
-  h = {}
-  binding.irb
+  h = Hash.new(0)
   nums1.each do |n|
-    h[n] = true
+    h[n] += 1
   end
   nums2.each do |n|
-    result << n if h[n]
+    if h[n].positive?
+      result << n
+      h[n] -= 1
+    end
   end
   result
 end
@@ -16,15 +18,15 @@ end
 # Input: 
 # Output: [2,2]
 
-nums1 = [1,2,2,1]
-nums2 = [2,2]
+# nums1 = [1,2,2,1]
+# nums2 = [2,2]
+# p intersect(nums1, nums2)
+
+nums1 = [4,9,5]
+nums2 = [9,4,9,8,4]
+# # Output: [4,9]
 p intersect(nums1, nums2)
 
-# nums1 = [4,9,5]
-# nums2 = [9,4,9,8,4]
-# # Output: [4,9]
-# p intersect(nums1, nums2)
-
-# nums1 = [1,2,2,1]
-# nums2 = [2]
-# p intersect(nums1, nums2)
+nums1 = [1,2,2,1]
+nums2 = [2]
+p intersect(nums1, nums2)
