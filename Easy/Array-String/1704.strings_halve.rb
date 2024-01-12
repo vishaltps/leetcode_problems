@@ -18,6 +18,8 @@ def halves_are_alike(s)
     last_count = current_count
   end
   true
+
+  
   # s.chars.each_slice(s.length / 2).with_index do |c, i|
   #   current_count = c.join.count('aeiou')
   #   return false if last_count && last_count != current_count
