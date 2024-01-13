@@ -15,18 +15,13 @@ def intersection(nums1, nums2)
   # result.to_a
   h = {}
   result = Set.new
-  min_len = [nums1.length, nums2.length].min
-  i = 0
-  while i < min_len
-    h[nums1[i]] = true
-    i += 1
-  end
-  i = 0
-  while i < min_len
-    result << nums2[i] if h[nums2[i]]
-    i += 1
+  nums1.each do |n|
+    h[n] = true
   end
 
+  nums2.each do |n|
+    result.push(n) if h[n]
+  end
   result.to_a
 end
 

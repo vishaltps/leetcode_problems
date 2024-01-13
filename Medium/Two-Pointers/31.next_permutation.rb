@@ -17,7 +17,6 @@ def next_permutation(nums)
     (0..perm.size).each { |i| result << perm.dup.insert(i,ch) }
   end
   
-  a[0]
 end
 
 # Example 1:
