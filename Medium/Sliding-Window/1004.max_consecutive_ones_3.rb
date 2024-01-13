@@ -10,6 +10,8 @@ def longest_ones(nums, k)
   #   end
   # end
   # nums.size - left
+
+  
   left = 0
   max_length = 0
   zero_count = 0
