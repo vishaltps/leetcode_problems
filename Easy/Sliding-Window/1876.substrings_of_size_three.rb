@@ -10,6 +10,9 @@
 def count_good_substrings(s)
   left = count = 0
   right = 2
+  (s.size-2).times do |i|
+    count += 1 if s[i..i+2].chars.uniq.size == 3
+  end
   while right < s.length
     count += 1 if s[left..right].chars.uniq.size == 3
 
