@@ -11,6 +11,8 @@ def leaf_similar(root1, root2)
   arr1 = arr2 = []
   find_leafes(root1, arr1)
   find_leafes(root2, arr1)
+
+  arr1 == arr2
   # if !root1.nil? && !root2.nil? && (root1.left.nil? || root1.right.nil?) && (root2.left.nil? || root2.right.nil?)
   #   if root1.val != root2.val
   #     return false

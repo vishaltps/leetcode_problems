@@ -22,8 +22,8 @@ def missing_number(nums)
   # end
   # binding.pry
   # h.find { |k, v| v.positive? }[1]
-  expected_sum = nums.size*(nums.size+1)/2
-    binding.pry
+  expected_sum = nums.length * (nums.length + 1) / 2
+    
     actual_sum = nums.sum
     expected_sum - actual_sum
 end

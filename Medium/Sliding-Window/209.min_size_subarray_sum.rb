@@ -20,7 +20,7 @@ def min_sub_array_len(target, nums)
     end
     right += 1
   end
-  [0, min_length].max
+  min_length == n ? 0 : min_length
 #   return 1 if nums.include? target
 
 #   first_index = 0

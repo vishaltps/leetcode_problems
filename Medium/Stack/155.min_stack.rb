@@ -11,10 +11,11 @@
 
 
 class MinStack
-  attr_accessor :stack
+  attr_accessor :stack, :min_stack
 
   def initialize()
     @stack  = []
+    @min_stack = []
   end
 
 
@@ -24,6 +25,17 @@ class MinStack
 =end
   def push(val)
     stack.push(val)
+    if min_stack.empty?
+      min_stack << val
+      return
+    end
+
+    peek = min_stack.last
+    if peek <= val
+      min_stack.push(peek)
+    else
+      min_stack.push(val)
+    end
   end
 
 
@@ -31,7 +43,8 @@ class MinStack
   :rtype: Void
 =end
   def pop()
-    stack.pop()
+    min_stack.pop
+    stack.pop
   end
 
 
@@ -39,7 +52,7 @@ class MinStack
   :rtype: Integer
 =end
   def top()
-    stack.max 
+    stack.last
   end
 
 
@@ -47,7 +60,7 @@ class MinStack
   :rtype: Integer
 =end
   def get_min()
-    stack.min
+    min_stack.last
   end
 end
 

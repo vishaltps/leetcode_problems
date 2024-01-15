@@ -11,7 +11,6 @@ def find_lhs(nums)
   end
 
   max
-
 end
 
 # nums = [1,3,2,2,5,2,3,7]

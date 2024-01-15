@@ -8,7 +8,7 @@ def convert(s, num_rows)
   gd  =false
   s.each_char do |c|
     result[current_row] += c
-    gd = !gd if current_row == 0 || current_row == num_rows - 1
+    gd = !gd if current_row.zero? || current_row == num_rows - 1
     current_row += gd ? 1 : -1
   end
   p result

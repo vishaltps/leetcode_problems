@@ -1,9 +1,8 @@
 
 def h_index(citations)
   citations.sort.reverse!
-  n = citations.max
   i = 0
-  while i < n
+  while i < citations.length
     break if citations[i] <= i
 
     i += 1
