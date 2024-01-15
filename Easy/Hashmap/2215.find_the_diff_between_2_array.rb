@@ -5,7 +5,7 @@
 # Note that the integers in the lists may be returned in any order.
 
 def find_difference(nums1, nums2)
-  [(nums1 - nums2), (nums2 - nums1)]
+  [(nums1 - nums2).uniq, (nums2 - nums1).uniq]
 end
 
 nums1 = [1,2,3]

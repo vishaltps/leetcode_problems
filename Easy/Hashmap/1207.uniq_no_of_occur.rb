@@ -5,7 +5,7 @@ def unique_occurrences(arr)
   arr.each do |a|
     h[a] += 1
   end
-  h.values.size == h.values.uniq.size
+  h.values.size == arr.uniq.size
 end
 # Example 1:
 
