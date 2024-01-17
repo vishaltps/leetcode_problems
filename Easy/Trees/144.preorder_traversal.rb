@@ -1,4 +1,3 @@
-# Given the root of a binary tree, return the postorder traversal of its nodes' values.
 
 class TreeNode
   attr_accessor :val, :left, :right
@@ -9,12 +8,12 @@ class TreeNode
   end
 end
 
-def postorder_traversal(root, result = [])
+def preorder_traversal(root, result = [])
   return result if root.nil?
 
-  postorder_traversal(root.left, result)
-  postorder_traversal(root.right, result)
   result << root.val
+  preorder_traversal(root.left, result)
+  preorder_traversal(root.right, result)
 end
 
 
@@ -29,4 +28,4 @@ root.left.right = TreeNode.new(5)
 root.right.left = TreeNode.new(6)
 root.right.right = TreeNode.new(7)
 
-p postorder_traversal(root)
+p preorder_traversal(root)

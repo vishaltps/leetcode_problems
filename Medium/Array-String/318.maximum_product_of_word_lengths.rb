@@ -3,17 +3,45 @@
 require 'pry'
 
 def max_product(words)
-  h = {}
-  words.each do |word|
-    mask = 0
-
-    word.chars.uniq.each do |c|
-      mask |= (1 << (c.ord - 97))
-    end
-
-    h[mask] = [h[mask] || 0, word.length].max
+  max_len = 0
+  bit_masks = Array.new(words.length, 0) 
+  words.each_with_index do |word, i|
+    word.each_char {|c| bit_masks[i] |= 1 << (c.ord  - 'a'.ord)}
   end
-  (h.map { |k1, v1| h.map { |k2, v2| ( k2 & k1 == 0 || nil) && v1 * v2 }.compact }.flatten + [0]).max
+  
+
+  (0...words.length).each do |i|
+    (i + 1...words.length).each do |j|
+      if (bit_masks[i] & bit_masks[j]).zero?
+        max_len = [max_len, (words[i].length * words[j].length)].max
+      end
+    end
+  end
+
+  max_len
+
+
+
+
+
+
+
+
+
+
+
+
+  # h = {}
+  # words.each do |word|
+  #   mask = 0
+
+  #   word.chars.uniq.each do |c|
+  #     mask |= (1 << (c.ord - 97))
+  #   end
+
+  #   h[mask] = [h[mask] || 0, word.length].max
+  # end
+  # (h.map { |k1, v1| h.map { |k2, v2| ( k2 & k1 == 0 || nil) && v1 * v2 }.compact }.flatten + [0]).max
   # words = words.sort_by(&:length).reverse
   # bins = words.map do |word|
   #   word.chars.reduce(0) { |val, ch| val |= 1 << (ch.ord - 'a'.ord) }
