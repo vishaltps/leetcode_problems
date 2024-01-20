@@ -12,9 +12,7 @@ def number_of_lines(widths, s)
   current_count = 0
   no_lines = 0
   s.each_char do |c|
-    # binding.irb
     a = current_count + h[c]
-    puts a
     if a > 100
       no_lines += 1
       current_count = h[c]

@@ -2,7 +2,7 @@
 
 def first_uniq_char(s)
   # matching = s.chars.tally.find {|_k,v| v == 1 } 
-  matching = s.each_char.find { |c| c.length == 1 }
+  matching = s.chars.group_by(&:itself).find { |_, chars| chars.length == 1 }
   matching ? s.index(matching[0]) : -1
 end
 

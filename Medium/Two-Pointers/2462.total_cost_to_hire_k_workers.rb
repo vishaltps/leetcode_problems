@@ -15,10 +15,10 @@ def total_cost(costs, k, candidates)
 
   k.times do |i|
     min = 1000000
-    # costs.each_slice(candidates) do |c|
-    #   min = [min, c.min].min
-    # end
-    # costs.delete_at(costs.index(min))
+    costs.each_slice(candidates)do |c|
+      min = [min, c.min].min
+    end
+    costs.delete_at(costs.index(min))
     total_cost += min
   end
   total_cost
@@ -53,5 +53,7 @@ end
 costs = [31,25,72,79,74,65,84,91,18,59,27,9,81,33,17,58]
 k = 11
 candidates = 2
+9 + 17 + 18 + 25 + 27 + 31 + 33 + 58 + 59 + 65 + 
+
 
 p total_cost(costs, k, candidates)
