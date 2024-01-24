@@ -24,32 +24,18 @@ def guess(n)
   end
 end
 def guessNumber(n)
-  output = guess(n)
   left = 1
-  right = n 
+  right = n
   while left <= right
-    
     mid = (left + right) / 2
-    puts "left - #{left}, right - #{right}, mid - #{mid}"
     output = guess(mid)
-    # binding.irb
     if output == 0
-      # binding.irb
       return mid
     elsif output > 0
       left = mid + 1
-      # right = mid
     else
-      # left = mid
       right = mid - 1
     end
-
-    # return i if output == 0
-    
-    # if output == -1
-
-    # else
-    # end
   end
 
 
