@@ -5,7 +5,7 @@ def my_sqrt(x)
   while(left <= right) do
     mid = (left + right) / 2
     square1, square2 = mid**2, (mid+1) ** 2
-    return mid if square1 <= x and square2 > x
+    return mid if square1 <= x && square2 > x
 
     if square1 > x
       right = mid
