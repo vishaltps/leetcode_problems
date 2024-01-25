@@ -1,7 +1,8 @@
 
 def h_index(citations)
-  citations.sort.reverse!
+  citations.sort!.reverse!
   i = 0
+
   while i < citations.length
     break if citations[i] <= i
 
@@ -10,6 +11,8 @@ def h_index(citations)
   i
 end
 
-citations = [3,0,6,1,5]
+# citations = [3,0,6,1,5]
+citations = [100]
+
 
 p h_index(citations)
