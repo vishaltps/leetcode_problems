@@ -1,24 +1,28 @@
 require 'pry'
-def my_sqrt(x)
-  left = 1
+my_sqrt(x)
+return 0 if x <= 0
+    left = 1
   right = x
-  ans = nil
   while(left <= right) do
     mid = (left + right) / 2
-    # square1, square2 = mid**2, (mid+1) ** 2
     square1 = mid**2
-    if square1 <= x
-      ans = mid
-    end
-    # return mid if square1 <= x && square2 > x
+    # ans = mid if square1 <= x
 
-    if square1 > x
-      right = mid - 1
+    # if square1 == x
+    #     return mid
+    # elsif square1 > x
+    #   right = mid - 1
+    # else
+    #   left = mid + 1
+    # end
+    if square1 <= x
+        left = mid + 1
     else
-      left = mid + 1
+        right = mid - 1
     end
+
   end
-  ans
+  right
 end
 
 # Input: x = 4
