@@ -13,7 +13,6 @@ def min_days(bloom_day, m, k)
   right = bloom_day.max
   while left <= right
     mid = left + (right - left) / 2
-    puts "left - #{left},right - #{right},mid =  #{mid}, #{possible(bloom_day, mid, m , k)}"
     if possible(bloom_day, mid, m , k)
       right = mid - 1
     else
