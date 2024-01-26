@@ -9,27 +9,90 @@
  
 require 'pry'
 def min_eating_speed(piles, h)
-  return piles.max if piles.length == h
+  return piles.size if piles.size == h
 
-  low = 1
-  high = piles.max
-  result = high
+  left = 1
+  right = piles.max
+  while left <= right
+    mid = left + (right - left) / 2
 
-  while low <= high
-    mid = (low + high) / 2
-    hours = 0
-    piles.each do |p|
-      hours += (p / mid.to_f).ceil
-    end
-    if hours <= h
-      result = mid if mid < result
-      high = mid - 1
+    no_of_hours = get_no_of_hours(piles, mid)
+    if no_of_hours <= h
+      right = mid - 1
     else
-      low = mid + 1
+      left = mid + 1
     end
   end
-  result
+  left
 end
+
+def get_no_of_hours(piles, n)
+  total_hours = 0
+  piles.each do |pile|
+    total_hours += (pile / n.to_f).ceil
+  end
+  total_hours
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#   def min_eating_speed(piles, h) 
+#   return piles.max if piles.length == h
+
+#   low = 1
+#   high = piles.max
+#   result = high
+
+#   while low <= high
+#     mid = (low + high) / 2
+#     hours = 0
+#     piles.each do |p|
+#       hours += (p / mid.to_f).ceil
+#     end
+#     if hours <= h
+#       result = mid if mid < result
+#       high = mid - 1
+#     else
+#       low = mid + 1
+#     end
+#   end
+#   result
+# end
 
 # Example 1:
 
@@ -45,6 +108,8 @@ end
 # Output: 23
  
 
-piles = [3,6,7,11]
- h = 8
+# piles = [3,6,7,11]
+#  h = 8
+piles = [30,11,23,4,20]
+ h = 6
 p min_eating_speed(piles, h)
