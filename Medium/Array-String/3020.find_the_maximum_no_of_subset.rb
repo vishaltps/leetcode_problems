@@ -13,7 +13,7 @@ def maximum_length(nums)
   count = h[1].odd? ? h[1] : h[1] - 1 if h[1]
 
   h.each do |k, v|
-    next count if k == 1 || v <= 1
+    next if k == 1 || v <= 1
 
     next unless h.key?(k**2)
 
