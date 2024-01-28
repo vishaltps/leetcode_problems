@@ -27,7 +27,6 @@ def subarray_sum(nums, k)
     puts "cumulative_sum - #{cumulative_sum}, sum_frequenct - #{sum_frequency}, diff #{cumulative_sum - k}"
     cumulative_sum += num
     if sum_frequency[cumulative_sum - k]
-      binding.irb
       puts "diff - #{cumulative_sum}, time -@"
       count += sum_frequency[cumulative_sum - k] 
     end
