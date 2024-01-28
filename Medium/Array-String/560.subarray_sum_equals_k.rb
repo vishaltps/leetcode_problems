@@ -23,9 +23,14 @@ def subarray_sum(nums, k)
   cumulative_sum = 0
   sum_frequency = { 0 => 1 }
 
-  nums.each do |num|
+  nums.each_with_index do |num, index|
+    puts "cumulative_sum - #{cumulative_sum}, sum_frequenct - #{sum_frequency}, diff #{cumulative_sum - k}"
     cumulative_sum += num
-    count += sum_frequency[cumulative_sum - k] if sum_frequency[cumulative_sum - k]
+    if sum_frequency[cumulative_sum - k]
+      binding.irb
+      puts "diff - #{cumulative_sum}, time -@"
+      count += sum_frequency[cumulative_sum - k] 
+    end
     sum_frequency[cumulative_sum] = sum_frequency.fetch(cumulative_sum, 0) + 1
   end
 
