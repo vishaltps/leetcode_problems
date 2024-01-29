@@ -41,8 +41,14 @@ end
 # root.left.left = TreeNode.new(1)
 # root.left.right = TreeNode.new(3)
 
-root = [1,null,5,3]
+# root = [1,null,5,3]
 
+# root = [543,384,652,null,445,null,699]
+root = TreeNode.new(543)
+root.left = TreeNode.new(384)
+root.right = TreeNode.new(652)
+root.left.right = TreeNode.new(445)
+root.right.right = TreeNode.new(699)
 
 
 p get_minimum_difference(root)
