@@ -15,22 +15,22 @@ def eval_rpn(tokens)
   stack = []
 
   tokens.each do |t|
-      case t
-      when '+'
-          first_val, second_val = stack.pop(2)
-          stack.push(first_val + second_val)
-      when '-'
-          first_val, second_val = stack.pop(2)
-          stack.push(first_val - second_val)
-      when '*'
-          first_val, second_val = stack.pop(2)
-          stack.push(first_val * second_val)
-      when '/'
-          first_val, second_val = stack.pop(2)
-          stack.push((first_val.to_f / second_val).to_i)
-      else
-          stack.push(t.to_i)
-      end
+    case t
+    when '+'
+      first_val, second_val = stack.pop(2)
+      stack.push(first_val + second_val)
+    when '-'
+      first_val, second_val = stack.pop(2)
+      stack.push(first_val - second_val)
+    when '*'
+      first_val, second_val = stack.pop(2)
+      stack.push(first_val * second_val)
+    when '/'
+      first_val, second_val = stack.pop(2)
+      stack.push((first_val.to_f / second_val).to_i)
+    else
+      stack.push(t.to_i)
+    end
   end
 
   stack[0]
