@@ -3,7 +3,7 @@ def search_matrix(matrix, target)
   m = matrix.size
   n = matrix[0].size
   low = 0
-  binding.irb
+  
   high = (m * n) - 1
 
   while low <= high
