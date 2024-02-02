@@ -4,10 +4,11 @@
 
 
 def single_number(nums)
-  result = nums.each_with_object(Hash.new(0)) do |num, h|
-  	h[num] += 1
-  end
-  result.find {|k, v| v == 1 }.first
+  # result = nums.each_with_object(Hash.new(0)) do |num, h|
+  # 	h[num] += 1
+  # end
+  # result.find {|k, v| v == 1 }.first
+  
 end
 
 
