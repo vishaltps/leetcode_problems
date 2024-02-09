@@ -118,7 +118,6 @@ def dp(arr, i, current, result, k)
   if i == arr.size
     if current.sum == k
       result.push(current.clone)
-
     end
     return result
   end
