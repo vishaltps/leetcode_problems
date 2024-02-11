@@ -14,11 +14,15 @@ def rotate(matrix)
   # new_matrix
   rows = matrix.size
 
+  puts "matrix - #{matrix}"
   (0...rows).each do |i|
-    (0...i).each do |j|
+    (i...rows).each do |j|
+      p "i - #{i}, j - #{j}, value #{matrix[i][j]}"
+      p "i - #{j}, j - #{i}, value #{matrix[i][i]}"
       matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
     end
   end
+  puts "matrix - #{matrix}"
   (0...rows).each do |i|
     matrix[i].reverse!
   end
