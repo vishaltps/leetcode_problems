@@ -4,10 +4,24 @@
 
 
 def majority_element(nums)
-  result = nums.each_with_object(Hash.new(0)) do |num, elements|
-    elements[num] += 1
+  # result = nums.each_with_object(Hash.new(0)) do |num, elements|
+  #   elements[num] += 1
+  # end
+  # result.key(result.values.max)
+  count = 0
+  curr_ele = nil
+  nums.each do |num|
+    if count == 0
+      curr_ele = num
+      count = 1
+    elsif num == curr_ele
+      count += 1
+    else
+      count -= 1
+    end
   end
-  result.key(result.values.max)
+  curr_ele
+  # max_size = (nums.size / 2)
   # candidate = nil
   # count = 0
   # nums.each do |num|
@@ -20,8 +34,6 @@ def majority_element(nums)
   #   else
   #     count -= 1
   #   end
-  #   puts "candiate = #{candidate}"
-  #   puts "count = #{count}"
   # end
 
   # candidate
