@@ -11,8 +11,7 @@
 def largest_perimeter(nums)
   nums.sort!
   total = nums.inject(:+)
-  n = nums.size
-  i = n - 1
+  i = nums.size - 1
   while i >= 2
     return total if total - nums[i] > nums[i]
 
