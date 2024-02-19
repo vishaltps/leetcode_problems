@@ -30,7 +30,6 @@ def is_safe(node, edges, color, visited, n, col)
 end
 
 
-
 # Example 1:
 
 # Input:
